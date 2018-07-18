@@ -1,12 +1,41 @@
 .clock {
     grid-row: 3/4;
     grid-column: 2/11;
-
-    background-color: $color-gray-one;
-    height: 80%;
     align-self: end;
+    
+    background-color: $color-gray-one;
+    text-align: center;
+    height: 75%;
+    width: 100%;
+    
     
     -webkit-clip-path: polygon(7% 0, 100% 0, 93% 100%, 0 100%);
     clip-path: polygon(7% 0, 100% 0, 93% 100%, 0 100%);
 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 275px));
+    grid-column-gap:70px;
+
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-family: 'Roboto Condensed';
+        font-size: 22px;
+        line-height: 25px;
+        color: $color-yellow-one;
+    }
+    &__amount {
+        font-family: 'Roboto Condensed';
+        font-size: 90px;
+        font-weight: bold;
+        line-height: 115px;
+        color: white;
+    }
 }
