@@ -14,7 +14,11 @@
     border: none;
     transform: rotate(-68deg) translate( -30px, -30px);
     
-    font-family: 'Roboto Condensed';
+    font-family: $font-roboto;
+
+    &:focus {
+        outline: none;
+    }
 
     i{
         margin-right: 10px;
