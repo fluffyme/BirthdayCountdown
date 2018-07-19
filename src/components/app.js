@@ -5,13 +5,28 @@ import Clock from './clock';
 import changeDate from './changeDate';
 import LargeText from './largeText';
 
+import moment from'moment';
+
 export default class App extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      active:false
+      active:false,
+      startDate: moment()
     }
+  }
+
+  handleChange = function(date) {
+    this.setState({
+      startDate: date
+    });
+  }.bind(this) 
+  
+  handleGenerate = function () {
+    this.setState({active: true})
+
+    var countDownDate = this.state.startDate.toDate().getTime();
   }
 
   renderItems = function() {
@@ -24,7 +39,7 @@ export default class App extends Component {
       ] 
     } else {
       return [
-        <Picker/>,
+        <Picker callback={(date) => this.handleChange(date)}/>,
          Button('Generate Countdown', () => this.setState({ active: true })) 
       ]      
     }
@@ -35,7 +50,7 @@ export default class App extends Component {
     return (
       <div className="grid">
         <h1 className="grid__title">Birthday Countdown</h1>
-        <div className="grid__skew-dark-one-box"></div>
+      
         <div className="grid__skew-dark-two"></div>
         <div className="grid__skew-dark-three"></div>
 
